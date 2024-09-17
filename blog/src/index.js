@@ -8,6 +8,12 @@ const port = 3000;//run website ở cái cổng này
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+//post dữ liệ đi dưới dạng json
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
+
 //HTTP logger
 app.use(morgan('combined'));
 
@@ -30,8 +36,11 @@ app.get('/news', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-    console.log(req.query.q);
     res.render(`search`);
+});
+app.post('/search', (req, res) => {
+  console.log(req.body);
+    res.send('');
 });
 
 //127.0.0.1 - localhost

@@ -1,8 +1,16 @@
 <div class="mt-4">
-    <form action="/search">
+    <form method="POST" action="/search">
         <div class="mb-3">
             <label for="search-input" class="form-label">Từ khóa</label>
             <input type="text" name="q" class="form-control" id="search-input" aria-describedby="emailHelp" placeholder="Nhập từ khóa">
+        </div>
+        <div class="mb-3">
+            <label for="gender-input">Từ khóa</label>
+            <select name="gender" class="form-control" id="gender-input">
+                <option value="">--Chọn giới tính</option>
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Tìm kiếm</button>
     </form>
