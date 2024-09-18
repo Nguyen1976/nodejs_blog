@@ -6,6 +6,8 @@ const { engine } = require('express-handlebars');
 const app = express();//khởi tạo 1 cái func app
 const port = 3000;//run website ở cái cổng này
 
+const route = require('./routes');
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 //post dữ liệ đi dưới dạng json
@@ -26,22 +28,8 @@ app.set('view engine', 'hbs');
 //Cấu hình đường dẫn tới thư mục views
 app.set('views', path.join(__dirname, 'resources', 'views'));
 
-//định nghĩa cái route
-app.get('/', (req, res) => {
-    res.render(`home`);
-});
-
-app.get('/news', (req, res) => {
-    res.render(`news`);
-});
-
-app.get('/search', (req, res) => {
-    res.render(`search`);
-});
-app.post('/search', (req, res) => {
-  console.log(req.body);
-    res.send('');
-});
+//Routes init
+route(app);
 
 //127.0.0.1 - localhost
 app.listen(port, () => {
