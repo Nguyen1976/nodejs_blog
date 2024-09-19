@@ -3,7 +3,6 @@ const router = express.Router();
 
 const siteController = require('../app/controller/SiteController');
 
-
 router.use('/:slug', siteController.search);
 router.use('/', siteController.index);
 
