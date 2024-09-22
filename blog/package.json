@@ -34,7 +34,8 @@
   "dependencies": {
     "blog": "file:",
     "express": "^4.21.0",
-    "express-handlebars": "^8.0.1"
+    "express-handlebars": "^8.0.1",
+    "mongoose": "^8.6.3"
   },
   "devDependencies": {
     "husky": "^9.1.6",
