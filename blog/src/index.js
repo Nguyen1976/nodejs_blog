@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express'); //nạp thư viện
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const { engine } = require('express-handlebars');
 
 const app = express(); //khởi tạo 1 cái func app
@@ -22,6 +23,7 @@ app.use(
 );
 app.use(express.json());
 
+app.use(methodOverride('_method'))
 //HTTP logger
 app.use(morgan('combined'));
 
@@ -30,6 +32,9 @@ app.engine(
     'hbs',
     engine({
         extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b,
+        }
     }),
 );
 app.set('view engine', 'hbs');
